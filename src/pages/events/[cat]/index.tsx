@@ -1,7 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function EventsCatPage({ data, pageName }) {
+type Props = {
+    data: {
+        id: string;
+        title: string;
+        city: string;
+        description: string;
+        image: string;
+        emails_registered: string[];
+    }[];
+    pageName: String;
+  }
+export default function EventsCatPage({ data, pageName }: Props) {
   return (
     <>
       <h1>Events in {pageName}</h1>
@@ -38,7 +49,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: { params: { cat: String; }; }) {
   const id = context?.params.cat;
   const { allEvents } = await import("data/data.json");
 

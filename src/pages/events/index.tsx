@@ -1,7 +1,12 @@
+import { EventsData } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Events({ data }) {
+type Props = {
+  data: EventsData["events_categories"]
+}
+
+export default function Events({ data }: Props) {
   return (
     <>
       {data.map((ev) => (
@@ -16,7 +21,7 @@ export default function Events({ data }) {
 }
 
 export async function getStaticProps() {
-  const { events_categories } = await import("/data/data.json");
+  const { events_categories } = await import("data/data.json");
   return {
     props: {
       data: events_categories,
