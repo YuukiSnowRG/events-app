@@ -1,20 +1,12 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import HomeMain from "@/components/homemain";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import { EventsData } from "@/types";
 
 const inter = Inter({ subsets: ["latin"] });
  type Props = {
-  data: {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-}[]
+  data: EventsData["events_categories"];
 }
 
 export default function Home({ data }: Props) {
@@ -26,9 +18,7 @@ export default function Home({ data }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <HomeMain data={data} />
-      <Footer/>
     </>
   );
 }

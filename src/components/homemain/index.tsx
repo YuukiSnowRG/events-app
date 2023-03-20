@@ -1,14 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { EventsData } from "@/types";
 
 type Props = {
-  data: {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-}[]
+  data: EventsData["events_categories"];
 }
+
 export default function HomeMain({data}: Props){
   return(
       <>

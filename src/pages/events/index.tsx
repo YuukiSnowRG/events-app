@@ -1,4 +1,5 @@
 import { EventsData } from "@/types";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,6 +10,9 @@ type Props = {
 export default function Events({ data }: Props) {
   return (
     <>
+      <Head>
+        <title> Events </title>
+      </Head>
       {data.map((ev) => (
         <Link key={ev.id} href={`/events/${ev.id}`}>
           <Image height={300} width={300} alt={ev.title} src={ev.image} />

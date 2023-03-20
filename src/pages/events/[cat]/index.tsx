@@ -1,20 +1,18 @@
+import { EventsData } from "@/types";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-    data: {
-        id: string;
-        title: string;
-        city: string;
-        description: string;
-        image: string;
-        emails_registered: string[];
-    }[];
-    pageName: String;
+    data: EventsData["allEvents"];
+    pageName: EventsData['allEvents'][0]['city'];
   }
 export default function EventsCatPage({ data, pageName }: Props) {
   return (
     <>
+    <Head>
+     <title>Events in {pageName} </title>
+    </Head>
       <h1>Events in {pageName}</h1>
       <div>
         {data.map((ev) => (
