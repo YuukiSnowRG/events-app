@@ -4,15 +4,20 @@ import Image from "next/image";
 export default function Header(){
   return(
     <header>
-        <div className='topnav'>
+      <div>
+        <div className="topNav">
           <Image src={"/image/vercel.png"} width={50} height={50} alt={"logo"} />
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/events">Events</Link>
-            <Link href="/about-us">About Us</Link>
+          <nav >
+            <ul>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/events">Events</Link></li>
+              <li><Link href="/about-us">About Us</Link></li>
+            </ul>
           </nav>
         </div>
-        <h1> Ut enim ad </h1>
+        <p className="title"> Sed Ut Perspiciatis Unde Omnis</p>
+      </div>
+        
       </header>
   )
 }

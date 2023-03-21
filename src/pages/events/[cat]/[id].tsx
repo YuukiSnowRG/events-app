@@ -1,25 +1,13 @@
 import { EventsData } from 'src/types';
-import Image from 'next/image'
-import Head from 'next/head';
+
+import SingleEvent from '@/components/events/single-event';
 
 type Props = {
   data: EventsData["allEvents"][0];
 }
 
 export default function EventPage({ data }:Props ){
-   console.log(data)
-   return(
-  <>
-    <Head>
-      <title>{data.title}</title>
-    </Head>
-    <div>
-      <Image src={data.image} width={1000} height={500} alt={data.title}/>
-      <h1>{data.title}</h1> 
-      <p>{data.description}</p>
-    </div>
- </>
-    )
+   return <SingleEvent data={data} />
 }
 
 export async function getStaticPaths(){

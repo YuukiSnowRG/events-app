@@ -10,7 +10,7 @@ export default function MainLayout({children}: MainLayoutProps){
   return(
     <>
       <Header />
-       {children}
+        <main>{children}</main>
       <Footer />
     </>
   )
