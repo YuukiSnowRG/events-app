@@ -30,7 +30,6 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps(context: { params: { id: string; }; }) {
-  console.log(context); /* loga o retorno no console */
   const id = context.params.id;
   const {allEvents}: EventsData = await import('data/data.json');
   const eventData = allEvents.find((ev) => id === ev.id)
